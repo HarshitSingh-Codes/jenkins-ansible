@@ -9,5 +9,10 @@ pipeline {
         sh 'ansible --private-key=$ANSIBLE_PRIVATE_KEY -u ec2-user -m ping tag_Name_install_redhat'
       }
     }
+    stage('Ping Ubuntu') {
+      steps {
+        sh 'ansible --private-key=$ANSIBLE_PRIVATE_KEY -u ubuntu -m ping tag_Name_install_ubuntu'
+      }
+    }
   }
 }
