@@ -1,13 +1,16 @@
 pipeline {
-  agent { label 'linux' }
+  agent { label 'ansible' }
   environment {
-   ANSIBLE_PRIVATE_KEY=credentials('mariadb-private-key') 
+   ANSIBLE_PRIVATE_KEY=credentials('jenkins.pem') 
   }
   stages {
-    stage('Hello') {
+    stage('Ping Ubuntu') {
       steps {
-        sh 'ansible-galaxy collection install -r requirements.yml'
-        sh 'ansible-playbook -i inventory/mariadb.hosts --private-key=$ANSIBLE_PRIVATE_KEY playbooks/mariadb.yml'
+        sh 'ansible --private-key=$ANSIBLE_PRIVATE_KEY -u ubuntu -m ping tag_Name_install_ubuntu'
+      }
+    stage('Ping RedHat') {
+      steps {
+        sh 'ansible --private-key=$ANSIBLE_PRIVATE_KEY -u ec2-user -m ping tag_Name_install_redhat'
       }
     }
   }
