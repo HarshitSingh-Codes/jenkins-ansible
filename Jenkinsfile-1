@@ -11,6 +11,7 @@ pipeline {
           ansible-galaxy --version
           ansible-inventory --graph
           ansible-galaxy collection list
+          ansible-doc -l | grep systemd
         '''
       }
     }
