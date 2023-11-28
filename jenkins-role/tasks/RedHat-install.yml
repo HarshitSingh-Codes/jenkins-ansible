@@ -41,7 +41,7 @@
     cmd: systemctl daemon-reload
 
 - name: Starting jenkins...
-  ansible.builtin.systemd_service:
+  community.general.systemd:
     name: jenkins.service
     state: started
 
