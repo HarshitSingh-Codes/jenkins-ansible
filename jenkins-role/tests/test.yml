@@ -1,5 +1,5 @@
 ---
-- hosts: tag_Name_jenkins_master_1
+- hosts: tag_Name_install_ubuntu
   become: yes
   gather_facts: yes
 

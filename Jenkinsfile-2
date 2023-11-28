@@ -14,5 +14,13 @@ pipeline {
         sh 'ansible --private-key=$ANSIBLE_PRIVATE_KEY -u ubuntu -m ping tag_Name_install_ubuntu'
       }
     }
+
+    stage('running jenkins role ') {
+      steps {
+        // sh 'ansible-playbook --private-key=$ANSIBLE_PRIVATE_KEY -u ubuntu  '
+        sh 'ansible-playbook  --private-key=$ANSIBLE_PRIVATE_KEY -u ubuntu jenkins-role/tests/test.yml'
+      }
+    }
+        
   }
 }
