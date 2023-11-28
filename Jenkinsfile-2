@@ -11,7 +11,7 @@ pipeline {
     }
     stage('add systemd availability ') {
       steps {
-        sh 'ansible-galaxy collection install ansible.builtin'
+        sh 'ansible-galaxy collection install community.general'
       }
     }
     stage('checking systemd availability ') {
