@@ -9,7 +9,7 @@ pipeline {
         sh 'ansible --private-key=$ANSIBLE_PRIVATE_KEY -u ubuntu -m ping tag_Name_install_ubuntu'
       }
     }
-    stage('checking systemd availability ') {
+    stage('add systemd availability ') {
       steps {
         sh 'ansible-galaxy collection install ansible.builtin'
       }
