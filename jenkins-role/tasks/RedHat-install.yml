@@ -29,9 +29,13 @@
     state: present
     update_cache: true
 
+# - name: Daemon reloading...
+#   ansible.builtin.systemd_service:
+#     daemon_reload: true
+
 - name: Daemon reloading...
-  ansible.builtin.systemd_service:
-    daemon_reload: true
+  ansible.builtin.command:
+    cmd: systemctl daemon-reload
 
 - name: Starting jenkins...
   ansible.builtin.systemd_service:
