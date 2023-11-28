@@ -22,7 +22,7 @@ pipeline {
     stage('running jenkins role ') {
       steps {
         // sh 'ansible-playbook --private-key=$ANSIBLE_PRIVATE_KEY -u ubuntu  '
-        sh 'ansible-playbook  --private-key=$ANSIBLE_PRIVATE_KEY -u ubuntu jenkins-role/tests/test.yml --tags "uninstall"'
+        sh 'ansible-playbook  --private-key=$ANSIBLE_PRIVATE_KEY -u ubuntu jenkins-role/tests/test.yml --tags "install"'
       }
     }
 
