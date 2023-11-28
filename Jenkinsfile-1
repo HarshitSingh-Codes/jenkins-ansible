@@ -10,6 +10,7 @@ pipeline {
           ansible-playbook --version
           ansible-galaxy --version
           ansible-inventory --graph
+          ansible-galaxy collection list
         '''
       }
     }
