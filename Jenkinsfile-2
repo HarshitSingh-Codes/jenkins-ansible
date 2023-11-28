@@ -4,11 +4,6 @@ pipeline {
    ANSIBLE_PRIVATE_KEY=credentials('jenkins.pem') 
   }
   stages {
-    stage('Ping RedHat') {
-      steps {
-        sh 'ansible --private-key=$ANSIBLE_PRIVATE_KEY -u ec2-user -m ping tag_Name_install_redhat'
-      }
-    }
     stage('Ping Ubuntu') {
       steps {
         sh 'ansible --private-key=$ANSIBLE_PRIVATE_KEY -u ubuntu -m ping tag_Name_install_ubuntu'
@@ -21,6 +16,6 @@ pipeline {
         sh 'ansible-playbook  --private-key=$ANSIBLE_PRIVATE_KEY -u ubuntu jenkins-role/tests/test.yml'
       }
     }
-        
+
   }
 }
