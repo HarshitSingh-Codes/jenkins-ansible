@@ -34,16 +34,12 @@
 #     daemon_reload: true
 
 - name: Daemon reloading...
-  community.general.systemd:
-    daemon_reload: true
-- name: Daemon reloading...
   ansible.builtin.command:
     cmd: systemctl daemon-reload
 
 - name: Starting jenkins...
-  community.general.systemd:
-    name: jenkins.service
-    state: started
+  ansible.builtin.command:
+    cmd: systemctl start jenkins
 
 - name: Registering passwd...
   ansible.builtin.command:
