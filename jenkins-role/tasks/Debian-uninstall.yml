@@ -3,6 +3,7 @@
   ansible.builtin.service:
     name: jenkins
     state: stopped
+  ignore_errors: true
 - name: Remove jenkins keyring
   ansible.builtin.command:
     cmd: rm -rf /usr/share/keyrings/jenkins-keyring.asc
