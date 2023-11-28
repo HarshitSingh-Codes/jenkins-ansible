@@ -11,6 +11,11 @@ pipeline {
     }
     stage('checking systemd availability ') {
       steps {
+        sh 'ansible-galaxy collection install ansible.builtin'
+      }
+    }
+    stage('checking systemd availability ') {
+      steps {
         sh 'ansible-doc systemd_service'
       }
     }
