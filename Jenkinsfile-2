@@ -9,16 +9,6 @@ pipeline {
         sh 'ansible --private-key=$ANSIBLE_PRIVATE_KEY -u ubuntu -m ping tag_Name_install_ubuntu'
       }
     }
-    stage('add systemd availability ') {
-      steps {
-        sh 'ansible-galaxy collection install community.general'
-      }
-    }
-    stage('checking systemd availability ') {
-      steps {
-        sh 'ansible-doc systemd_service'
-      }
-    }
     stage('running jenkins role ') {
       steps {
         // sh 'ansible-playbook --private-key=$ANSIBLE_PRIVATE_KEY -u ubuntu  '
